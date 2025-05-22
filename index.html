@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>My Contacts</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="center-align">Contact List</h1>
+        <input type="text" id="filterInput" placeholder="Search contacts...">
+        <ul id="names" class="collection with-header">
+            <li class="collection-header"><h5>A</h5></li>
+            <li class="collection-item"><a href="#">Adufe</a></li>
+            <li class="collection-item"><a href="#">Ajala</a></li>
+            <li class="collection-item"><a href="#">Ajani</a></li>
+            <li class="collection-item"><a href="#">Akanji</a></li>
+            <li class="collection-item"><a href="#">Atlantis</a></li>
+            <li class="collection-header"><h5>B</h5></li>
+            <li class="collection-item"><a href="#">Bayo</a></li>
+            <li class="collection-item"><a href="#">Bode</a></li>
+            <li class="collection-item"><a href="#">Bola</a></li>
+            <li class="collection-item"><a href="#">Bolu</a></li>
+            <li class="collection-item"><a href="#">Brad</a></li>
+            <li class="collection-item"><a href="#">Bunmi</a></li>
+            <li class="collection-header"><h5>D</h5></li>
+            <li class="collection-item"><a href="#">Debo</a></li>
+            <li class="collection-item"><a href="#">Defunke</a></li>
+            <li class="collection-item"><a href="#">Dolapo</a></li>
+            <li class="collection-header"><h5>F</h5></li>
+            <li class="collection-item"><a href="#">Fejiro</a></li>
+            <li class="collection-item"><a href="#">Femi</a></li>
+            <li class="collection-item"><a href="#">Fife</a></li>
+            <li class="collection-item"><a href="#">Fiyi</a></li>
+            <li class="collection-item"><a href="#">Foyin</a></li>
+        </ul>
+    </div>
+
+    <script>
+        // get input field
+        let filterInput = document.getElementById('filterInput')
+
+        // add event listener
+        filterInput.addEventListener('keyup', filterNames)
+
+        function filterNames(){
+            // get value of input
+            let filterValue = document.getElementById('filterInput').value.toUpperCase()
+
+            // get names ul
+            let names = document.getElementById('names')
+            // get lis from ul
+            let li = document.querySelectorAll('li.collection-item')
+
+            // loop through collection-item lis
+            for (let i = 0; i < li.length; i++){
+                let a = li[i].getElementsByTagName('a')[0]
+                // if matched
+                if (a.innerHTML.toUpperCase().indexOf(filterValue) > -1){
+                li[i].style.display = ''
+                } else {
+                    li[i].style.display = 'none'
+                }
+            }
+
+        }
+    </script>
+</body>
+</html>
